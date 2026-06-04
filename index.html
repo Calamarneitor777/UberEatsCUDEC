@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Fogon Los Bybys</title>
+  <title>Tacos el Negro Tomaso</title>
   <!-- materialize icons, css & js -->
   <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +15,7 @@
   <!-- Menu superior -->
   <nav class="z-depth-0">
     <div class="nav-wrapper container">
-      <a href="/">Fogon Los Bybys</span></a>
+      <a href="/">Tacos el Negro Tomaso</span></a>
       <span class="right grey-text text-darken-1">
         <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
       </span>
@@ -24,7 +24,7 @@
 
   <!-- Menu lateral -->
   <ul id="side-menu" class="sidenav side-menu">
-    <li><a class="subheader">Fogon Los Bybys</a></li>
+    <li><a class="subheader">Tacos el Negro Tomaso</a></li>
     <li><a href="/" class="waves-effect">Inicio</a></li>
     <li><a href="/pages/about.html" class="waves-effect">Acerca</a></li>
     <li><div class="divider"></div></li>
@@ -58,11 +58,32 @@
         <label for="ingredients">Ingredientes</label>
       </div>
       <div class="input-field center">
-        <button class="btn-small">Agregar</button>
+        <button id="btnAgregarPlatillo" class="btn-small">Agregar</button>
       </div>
     </form>
   </div>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js";>
+</script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js";>
+</script>
+<script>
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDLS7TINSNt0RbK7AbWnAMeV8WUEcaOtmo",
+    authDomain: "uieats-b0c6c.firebaseapp.com",
+    projectId: "uieats-b0c6c",
+    storageBucket: "uieats-b0c6c.firebasestorage.app",
+    messagingSenderId: "21095607403",
+    appId: "1:21095607403:web:241981bd0c275ede83952e",
+    measurementId: "G-0VT3HNXL9P"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
   <script src="/js/index.js"></script>
+  
+  <script src="/js/db.js"></script>
 </body>
 </html>
