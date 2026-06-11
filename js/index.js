@@ -1,5 +1,5 @@
 btnAgregarPlatillo = document.getElementById('btnAgregarPlatillo');
-
+let contenido ="";
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -13,3 +13,34 @@ document.addEventListener('DOMContentLoaded', function() {
 btnAgregarPlatillo.addEventListener('click', function() {
   alert('Platillo agregado');
 });
+
+function mostrarPlatillo(platillo, id){
+ contenido += 
+  `<div class="card-panel recipe white row" 
+  id="${id}"> 
+    <div class= "recipe-details">
+      <div class= "recipe-title">
+         Nombre: ${platillo.nombre}
+      </div>
+      <div class="recipe-ingredients">
+  Ingredientes: ${platillo.ingredientes}
+      </div>
+      <div class="recipe-price">
+  Precio: $${platillo.precio}
+      </div> 
+    </div>
+      <div class="recipe-delete">
+        <i class="material-icons" data-id="${id}">delete_outline</i>
+      </div>
+
+  </div>`;
+document.querySelector('.recipes').innerHTML = contenido
+}
+
+
+function actualizarPlatillo(platillo, id){
+  let tarjeta =document.getElementById(`${id}`);
+  tarjeta.querySelector(".recipe-title").innerHTML = platillo.nombre;
+  tarjeta.querySelector(".recipe-ingredients").innerHTML = platillo.ingredientes;
+    tarjeta.querySelector(".recipe-price").innerHTML = `$${platillo.precio}`;
+}
