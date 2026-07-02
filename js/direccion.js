@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(menus, { edge: 'right' });
 });
 
-let contenidoLista = "";
+let contenidodireccion = "";
 
 
-db.collection("platillo").onSnapshot((datos) => {
+db.collection("Direccion").onSnapshot((datos) => {
   datos.docChanges().forEach((registro) => {
     if (registro.type === "added"){
       agregarALista(registro.doc.data(),registro.doc.id);
@@ -20,12 +20,12 @@ db.collection("platillo").onSnapshot((datos) => {
 })
 
 
-function agregarALista(platillo, id){
-    contenidoLista += `<option value="${id}">
+function agregarALista(Direccion, id){
+    contenidodireccion += `<option value="${id}">
 
-    ${platillo.nombre}
+    ${Direccion.nombre}
     </option>`;
-    document.getElementById("listaPlatillo").innerHTML = contenidoLista;
+    document.getElementById("listadireccion").innerHTML = contenidodireccion;
 }
 
 M.AutoInit();

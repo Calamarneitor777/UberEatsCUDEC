@@ -33,33 +33,33 @@
     </li>
   </ul>
 
-
-
   <!-- content -->
   <div class="container grey-text">
-    <h2>Realizar Pedido</h2>
+    <h4 class="center">Realizar Pedido</h4>
     <br>
-   <h3>Platillo</h3>
-   
-   <form>
+    <h5>Platillo</h5>
+    <form>
       <select id="listaPlatillo"></select>
-   </form>
-
-   <h3>Direccion</h3>
-    <textarea></textarea>
+    </form>
     <br>
-        <button  class="btn-small">Cancelar</button>
-          <button class="btn-small">Guardar</button>
-      
+    <h5>Dirección</h5>  
+    <div class="input-field">
+      <input placeholder="ejemplo: Calle 123" id="direccion" type="text" class="validate">
+    <br>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="btnPedido">Guardar direccion
+    </button>
+    <button type="button" onclick="location.href='http://127.0.0.1:5500/index.html'">
+    Regresar a Menú
+</button>
   </div>
 
-
-<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js";>
-</script>
-<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js";>
-</script>
-
-  <script src="/js/firebase.js"></script>
-  <script src="/js/pedidos.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js">
+    </script>
+    <script src="/js/firebase.js"></script>
+      <script src="/js/pedidos.js"></script>
+      
+      <script src="/js/direccion.js"></script>
 </body>
 </html>
