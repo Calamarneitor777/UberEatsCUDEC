@@ -1,65 +1,96 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Food Ninja</title>
-  <!-- materialize icons, css & js -->
-  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" href="/css/styles.css" rel="stylesheet">
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Ninja</title>
+
+<link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" href="/css/styles.css" rel="stylesheet">
+<script src="/js/materialize.min.js"></script>
+
 </head>
+
 <body class="grey lighten-4">
 
-  <!-- top nav -->
-  <nav class="z-depth-0">
+<nav class="z-depth-0">
     <div class="nav-wrapper container">
-      <a href="/">Food<span>Ninja</span></a>
-      <span class="right grey-text text-darken-1">
-        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
-      </span>
+        <a href="/">Food<span>Ninja</span></a>
+        <span class="right grey-text text-darken-1">
+            <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+        </span>
     </div>
-  </nav>
+</nav>
 
-  <!-- side nav -->
-  <ul id="side-menu" class="sidenav side-menu">
+<ul id="side-menu" class="sidenav side-menu">
     <li><a class="subheader">FOODNINJA</a></li>
     <li><a href="/" class="waves-effect">Home</a></li>
     <li><a href="/pages/about.html" class="waves-effect">About</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="/pages/contact.html" class="waves-effect">
-      <i class="material-icons">mail_outline</i>Contact</a>
+    <li>
+        <a href="/pages/contact.html" class="waves-effect">
+            <i class="material-icons">mail_outline</i>Contact
+        </a>
     </li>
-  </ul>
+</ul>
 
-  <!-- content -->
-  <div class="container grey-text">
-    <h4 class="center">Realizar Pedido</h4>
-    <br>
-    <h5>Platillo</h5>
-    <form>
-      <select id="listaPlatillo"></select>
-    </form>
-    <br>
-    <h5>Dirección</h5>  
+<div class="container grey-text">
+
+    <h1 class="center">Realizar Pedido</h1>
+
+    <h2>Platillo</h2>
+
     <div class="input-field">
-      <input placeholder="ejemplo: Calle 123" id="direccion" type="text" class="validate">
-    <br>
-    <button class="btn waves-effect waves-light" type="submit" name="action" id="btnPedido">Guardar direccion
-    </button>
-    <button type="button" onclick="location.href='http://127.0.0.1:5500/index.html'">
-    Regresar a Menú
-</button>
-  </div>
+        <select id="listaPlatillo">
+            <option value="" disabled selected>Seleccione un platillo</option>
+        </select>
+    </div>
 
-    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js">
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js">
-    </script>
-    <script src="/js/firebase.js"></script>
-      <script src="/js/pedidos.js"></script>
-      
-      <script src="/js/direccion.js"></script>
+    <h6>Nombre</h6>
+
+    <div class="input-field">
+        <input
+            id="nombre"
+            type="text"
+            placeholder="Coloque su Nombre">
+    </div>
+
+    <h8>Dirección</h8>
+
+    <div class="input-field">
+        <input
+            id="direccion"
+            type="text"
+            placeholder="Coloque su Dirección">
+    </div>
+
+    <button
+       
+        id="btnPedido"
+        type="button">
+        Guardar pedido
+    </button>
+
+    <button
+        type="button"
+        onclick="location.href='http://127.0.0.1:5500/index.html'">
+        Regresar
+    </button>
+
+     <button
+       
+        id="posicion"
+        type="button">ubicacion
+    </button>
+
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+
+<script src="/js/firebase.js"></script>
+<script src="/js/pedidos.js"></script>
+
 </body>
 </html>

@@ -2,10 +2,10 @@ btnAgregarPlatillo = document.getElementById('btnAgregarPlatillo');
 let contenido ="";
 
 document.addEventListener('DOMContentLoaded', function() {
-  // nav menu
+  
   const menus = document.querySelectorAll('.side-menu');
   M.Sidenav.init(menus, {edge: 'right'});
-  // add recipe form
+ 
   const forms = document.querySelectorAll('.side-form');
   M.Sidenav.init(forms, {edge: 'left'});
 });
@@ -44,3 +44,32 @@ function actualizarPlatillo(platillo, id){
   tarjeta.querySelector(".recipe-ingredients").innerHTML = platillo.ingredientes;
     tarjeta.querySelector(".recipe-price").innerHTML = `$${platillo.precio}`;
 }
+
+document.querySelector('.recipes').addEventListener('click', function(e) {
+
+  const icono = e.target.closest('.recipe-delete .material-icons');
+
+  if (!icono) return;
+
+  const id = icono.dataset.id;
+
+  db.collection("platillos").doc(id).delete()
+    .then(() => {
+
+      const tarjeta = document.getElementById(id);
+
+      if (tarjeta) {
+        tarjeta.remove();
+      }
+
+      alert('Platillo eliminado');
+
+    })
+    .catch((error) => {
+
+      console.log(error);
+      alert('Error al eliminar el platillo');
+
+    });
+
+});
