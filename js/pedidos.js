@@ -55,32 +55,39 @@ document.getElementById("posicion").addEventListener("click", function(){
 });
 
 
-function exito(posicion){
+function exito(posicion) {
+  let latitud = posicion.coords.latitude;
+  let longitud = posicion.coords.longitude;
 
-    const latitud = posicion.coords.latitude;
-    const longitud = posicion.coords.longitude;
+  fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitud}&lon=${longitud}&format=json `, {
+    headers: {
+        
+    }
+  })
+  
+  .then(respuesta => respuesta.json())
 
-    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon=${longitud}&format=json`, {
-        headers: {
-            'User-Agent': 'FoodNinja'
-        }
-    })
-    .then(respuesta => respuesta.json())
-    .then(data => {
+  .then(data =>{
+      let ciudad = data.address.city;
+  let pais = data.address.country;
+  document.getElementById("direccion").value = `${ciudad}, ${pais}`;
+  var map = L.map('mapa').setView([latitud, longitud], 13);
 
-        document.getElementById("direccion").value = data.display_name;
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
 
-    })
-    .catch(error => console.error(error));
+L.marker([latitud, longitud]).addTo(map);
+ 
+  })
+  .catch(error =>  console.error(error));
+  
 
 }
-
-
-function error(error){
-    alert("error al obtener la ubicacion");
-    console.log(error);
+function error() {
+  M.toast({html: 'No se pudo obtener la ubicación'});
 }
-
 
 
 
